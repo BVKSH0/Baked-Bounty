@@ -30,11 +30,12 @@
   cursor: pointer;
   font-weight: 600;
   font-size: 15px;
+  transition: 0.27s;
 }
 
-/* #hero button:hover {
-    text-decoration: underline;
-  } */
+#hero button:hover {
+  color: #023430;
+}
 
 /* FEATURES */
 
@@ -228,4 +229,109 @@
 .fb-btn:hover {
   background-color: #088178;
   color: #fff;
+}
+
+/* CTA BANNERS 2nd Part  */
+
+#sm-banner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#sm-banner .banner-box,
+.banner-box2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px;
+  background-image: url(assets/Home/cta-banner1.jpeg);
+  width: 41.5vw;
+  min-width: 550px;
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+}
+#sm-banner .banner-box2 {
+  background-image: url(assets/Home/cta-banner2.jpeg);
+}
+
+#sm-banner h4 {
+  color: rgb(88, 88, 88);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+#sm-banner h2 {
+  color: #000000;
+  font-size: 2.1rem;
+  font-weight: 800;
+}
+#sm-banner span {
+  color: rgb(51, 51, 51);
+  font-size: 15px;
+  font-weight: 500;
+  padding-bottom: 15px;
+}
+
+#sm-banner .banner-box:hover button,
+.banner-box2:hover button {
+  background: #088178;
+  border: 1px solid #088178;
+}
+
+#newsletter {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+
+  background-image: url(assets/Home/newsletter.jpeg);
+  background-repeat: no-repeat;
+  background-position: 20% 30%;
+  background-color: #041e42;
+}
+
+#newsletter h4 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+#newsletter p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #818ea0;
+}
+#newsletter p span {
+  color: #ffbd27;
+}
+
+#newsletter .form {
+  display: flex;
+  width: 40%;
+}
+
+#newsletter input {
+  height: 3.125rem;
+  padding: 0 1.25em;
+  font-size: 14px;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  outline: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#newsletter button {
+  background-color: #088178;
+  color: #fff;
+  white-space: nowrap;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#newsletter button:hover {
+  background-color: #09958c;
 }
