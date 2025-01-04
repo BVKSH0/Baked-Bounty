@@ -1,0 +1,56 @@
+@media (max-width: 799px) {
+  .section-p1 {
+    padding: 40px;
+  }
+  #navbar {
+    display: none;
+  }
+  .hamburger-nav,
+  .nav-icon {
+    display: flex;
+  }
+  #feature {
+    justify-content: center;
+  }
+  #feature .fe-box {
+    margin: 15px;
+  }
+
+  #product .product-container {
+    justify-content: center;
+  }
+
+  #product .product {
+    margin: 20px;
+  }
+
+  #banner {
+    height: 20vh;
+  }
+  #banner h2 {
+    margin: 0;
+  }
+
+  #sm-banner .banner-box,
+  .banner-box2 {
+    padding: 30px;
+    margin-bottom: 30px;
+    min-width: 100%;
+    height: 30vh;
+  }
+
+  #newsletter .form {
+    width: 70%;
+  }
+
+  footer .footer-logo {
+    width: 77px;
+    height: 77px;
+  }
+
+  footer p {
+    font-size: 16px;
+    color: #465b52;
+    margin: 10px 0 10px 0;
+  }
+}
