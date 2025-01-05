@@ -53,4 +53,79 @@
     color: #465b52;
     margin: 10px 0 10px 0;
   }
+  footer a {
+    margin: 15px 0px 0px 0px;
+  }
+}
+
+@media (max-width: 477px) {
+  .section-p1 {
+    padding: 20px 20px;
+  }
+  #header {
+    padding: 10px 30px;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  #hero {
+    padding: 0 25px;
+    background-position: 20%;
+  }
+
+  #feature {
+    justify-content: space-between;
+  }
+
+  #feature .fe-box {
+    width: 155px;
+    margin: 0 0 15px 0;
+  }
+
+  #product .product {
+    width: 100%;
+  }
+
+  #banner {
+    height: 40vh;
+  }
+
+  #banner h2 {
+    font-size: 32px;
+  }
+  #banner span {
+    color: #f8ff77;
+  }
+
+  #sm-banner .banner-box,
+  .banner-box2 {
+    height: 40vh;
+  }
+
+  #newsletter {
+    padding: 40px 20px;
+  }
+
+  #newsletter .form {
+    width: 100%;
+  }
+
+  footer .follow .footer-icon {
+    margin: 5px;
+    margin-left: 25.5px;
+  }
+
+  footer {
+    justify-content: space-around;
+  }
+  footer .col {
+    text-align: center;
+    align-items: center;
+  }
 }
