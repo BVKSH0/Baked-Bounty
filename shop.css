@@ -1,3 +1,5 @@
+/* PAGE HEADER  */
+
 #page-header {
   background-image: url("assets/Shop/page-header.jpeg");
   width: 100%;
@@ -11,6 +13,25 @@
 }
 
 #page-header h2,
-p {
+#page-header p {
   color: aliceblue;
 }
+
+/* PAGINATION */
+
+#pagination {
+  text-align: center;
+}
+
+#pagination a {
+  text-decoration: none;
+  background-color: #088178;
+  padding: 15px 20px;
+  border-radius: 4px;
+  color: aliceblue;
+  font-weight: 600;
+}
+
+/* #pagination a i {
+  font-size: 16px;
+} */

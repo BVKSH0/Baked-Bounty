@@ -122,8 +122,12 @@
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.08);
 }
 
-#product .product img {
-  width: 100%;
+#product .product .pro-img {
+  max-height: 200px;
+  min-height: 150px;
+  width: auto;
+  /* object-fit: cover;   */
+  overflow: hidden;
   border-radius: 20px;
 }
 
@@ -143,9 +147,19 @@
   color: #1a1a1a;
   font-size: 14px;
 }
+#product .product .product-des .price {
+  display: inline-flex;
+  align-items: center;
+  padding-top: 9px;
+}
+
+#product .product .product-des .original-price {
+  text-decoration: line-through;
+  color: gray;
+  margin-right: 5px;
+}
 
 #product .product .product-des h4 {
-  padding-top: 9px;
   font-size: 15px;
   font-weight: 700;
   color: #088178;
