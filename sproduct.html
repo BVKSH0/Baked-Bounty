@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="shop.css" />
+    <link rel="stylesheet" href="sproduct.css" />
     <link rel="stylesheet" href="mediaquery.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -12,15 +14,17 @@
     />
     <title>Baked Bounty</title>
   </head>
+
   <body>
+
     <section id="header">
       <a href="#"><img src="assets/logo.png" class="nav-logo" alt="Logo" /></a>
 
       <nav>
         <div id="navbar">
           <ul>
-            <li><a class="active" href="Index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
+            <li><a href="Index.html">Home</a></li>
+            <li><a class="active" href="shop.html">Shop</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -50,8 +54,8 @@
 
               <div class="menu-links">
                 <ul>
-                  <li><a class="active" href="Index.html">Home</a></li>
-                  <li><a href="shop.html">Shop</a></li>
+                  <li><a href="Index.html">Home</a></li>
+                  <li><a class="active" href="shop.html">Shop</a></li>
                   <li><a href="blog.html">Blog</a></li>
                   <li><a href="about.html">About</a></li>
                   <li><a href="contact.html">Contact</a></li>
@@ -63,48 +67,39 @@
       </nav>
     </section>
 
-    <section id="hero">
-      <div class="h-Text">
-        <h4>Incredible Value</h4>
-        <h2>Sweet Deals</h2>
-        <h1>On All Our Treats!</h1>
-        <p>Order From The Comfort of Your Home!</p>
-        <!-- adrress the shop button -->
-        <button>Shop Now</button>
-      </div>
-    </section>
+   <section id="prodetails" class="section-p1">
 
-    <section class="section-p1" id="feature">
-      <div class="fe-box">
-        <img src="assets/home/features/f1.png" alt="" />
-        <h6>Online Order</h6>
-      </div>
+    <div class="single-pro-image">
+        <img src="assets/Products/f1.png" width="100%" class="MainImg" id="MainImg" alt="">
 
-      <div class="fe-box">
-        <img src="assets/home/features/f2.png" alt="" />
-        <h6>Fast Shipping</h6>
-      </div>
+        <div class="small-img-grp">
+            <div class="small-img-col">
+                <img src="assets/Products/f1.png" width="100%" class="small-img-col" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="assets/Products/f2.png" width="100%" class="small-img-col" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="assets/Products/f3.png" width="100%" class="small-img-col" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="assets/Products/f4.png" width="100%" class="small-img-col" alt="">
+            </div>
+        </div>
+    </div>
 
-      <div class="fe-box">
-        <img src="assets/home/features/f3.png" alt="" />
-        <h6>Save Money</h6>
-      </div>
+    <div class="single-pro-details">
 
-      <div class="fe-box">
-        <img src="assets/home/features/f4.png" alt="" />
-        <h6>Wide Selection</h6>
-      </div>
+      <h6>home / product</h6>
+      <h4>Masako Meat Seasoning</h4>
+      <h2>650৳</h2>
+      <input type="number" value="1" >
+      <button class="normal">Add to Cart</button>
+      <h4>Product Details</h4>
+      <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis autem inventore aliquid saepe ut laborum quos nihil maxime, odit earum asperiores? Pariatur, nobis aut quaerat sint quia exercitationem quo non tenetur amet suscipit eveniet repellat dicta excepturi laudantium molestiae consequuntur id error quis odio deserunt adipisci! Ex ipsa accusamus dolores commodi excepturi est nesciunt nihil.</span>
+    </div>
 
-      <div class="fe-box">
-        <img src="assets/home/features/f5.png" alt="" />
-        <h6>Exclusive Deals</h6>
-      </div>
-
-      <div class="fe-box">
-        <img src="assets/home/features/f6.png" alt="" />
-        <h6>24/7 Support</h6>
-      </div>
-    </section>
+   </section>
 
     <section class="section-p1" id="product">
       <h2>Featured Products</h2>
@@ -112,70 +107,7 @@
 
       <div class="product-container">
         <div class="product">
-          <img class="pro-img" src="assets/Products/f5.png" alt="Product-1" />
-
-          <div class="product-des">
-            <span>Herman</span>
-            <h5>Mayonnaise</h5>
-            <!-- <div class="review-star">
-              <span class="star">&#9733;</span>
-              <span class="star"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAATVJREFUSEu1lc1xgzAQRp/She1DnKO6wJ3YlcRUgjuJu9AxXGy6iDIIgQa8QsIDuggYsW9/vl0pNl5qY/ssApgnP1hqfeCS61g2wDScsVTOsOKkd9xzIPmA1nsovNG73nNaDWAaCqwDhJUZRVYELvfB+x6SFUUSYBqOWH6FdNQoLqlaDABn6I8z8Ini6A22e/8spbz2H7vd0u0flHrXPQeAnIacOopgvedrDHhwRfH9rsWJANrU3UaA9sWsAZmo66XIo4ZaFo5YdFFFb0CiiorK1DyoUE5V6TXTdHHAElVZSn3gKnkyB7Bp14cT0a5erQa97qdOLQNYSmdA6pdIHWTAa4FHKvHzqR2AYYxYbtJFJAOebrh1P0cKOMyuEE0tpWkugiJnWvpoqthVmhzXC5QkHt0c8A+rdHYZoQ9YnwAAAABJRU5ErkJggg=="/></span>
-            </div> -->
-            <div class="price">
-              <h4 class="original-price">650৳</h4>
-              <h4 class="discounted-price">650৳</h4>
-            </div>
-          </div>
-          <a href="#">
-            <img
-              class="icon cart"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARtJREFUSEvdlc0RgjAUhDeeYhfQCXaiV20gJwicXgN61U6gE+nC3KKJQ8yMQhJGZhxzzM/7s    ru8wLDwYAvXxx8BeC30F+3qVUW5qecs+jIAqiJb+y0DXgsJoILGRUnapajijdhC4+yffQdIkYHhCsDJjIXwRrTQKMCwUyVdPiowk26jxkZJ6qIBQ44auZLUTwGeUhk6VdImBvDJnnHADJu4FOZC20eutarI5GjHaKM5m2Ku7+/x7JkGSGHCahPq92Coh3DDCl42AYlh+5eafIucrzN6IqjAfq5PFcamLMaqoXujFTjIynZnEYLMAoSKhtaj/gfrRhy1xp4xnG4lHYaiY/NJFlmbvKfct2FsPhmwuIKQz1PrURn8NOAO/hCLGVMxPKUAAAAASUVORK5CYII="
-          /></a>
-        </div>
-        <div class="product">
-          <img class="pro-img" src="assets/Products/f6.png" alt="Product-2" />
-
-          <div class="product-des">
-            <span>Baked & Bounty</span>
-            <h5>Blueberry Filling</h5>
-            <!-- <div class="review-star">
-              <span class="star">&#9733;</span>
-              <span class="star"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAATVJREFUSEu1lc1xgzAQRp/She1DnKO6wJ3YlcRUgjuJu9AxXGy6iDIIgQa8QsIDuggYsW9/vl0pNl5qY/ssApgnP1hqfeCS61g2wDScsVTOsOKkd9xzIPmA1nsovNG73nNaDWAaCqwDhJUZRVYELvfB+x6SFUUSYBqOWH6FdNQoLqlaDABn6I8z8Ini6A22e/8spbz2H7vd0u0flHrXPQeAnIacOopgvedrDHhwRfH9rsWJANrU3UaA9sWsAZmo66XIo4ZaFo5YdFFFb0CiiorK1DyoUE5V6TXTdHHAElVZSn3gKnkyB7Bp14cT0a5erQa97qdOLQNYSmdA6pdIHWTAa4FHKvHzqR2AYYxYbtJFJAOebrh1P0cKOMyuEE0tpWkugiJnWvpoqthVmhzXC5QkHt0c8A+rdHYZoQ9YnwAAAABJRU5ErkJggg=="/></span>
-            </div> -->
-            <div class="price">
-              <h4 class="original-price">650৳</h4>
-              <h4 class="discounted-price">650৳</h4>
-            </div>
-          </div>
-          <a href="#">
-            <img
-              class="icon cart"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARtJREFUSEvdlc0RgjAUhDeeYhfQCXaiV20gJwicXgN61U6gE+nC3KKJQ8yMQhJGZhxzzM/7sru8wLDwYAvXxx8BeC30F+3qVUW5qecs+jIAqiJb+y0DXgsJoILGRUnapajijdhC4+yffQdIkYHhCsDJjIXwRrTQKMCwUyVdPiowk26jxkZJ6qIBQ44auZLUTwGeUhk6VdImBvDJnnHADJu4FOZC20eutarI5GjHaKM5m2Ku7+/x7JkGSGHCahPq92Coh3DDCl42AYlh+5eafIucrzN6IqjAfq5PFcamLMaqoXujFTjIynZnEYLMAoSKhtaj/gfrRhy1xp4xnG4lHYaiY/NJFlmbvKfct2FsPhmwuIKQz1PrURn8NOAO/hCLGVMxPKUAAAAASUVORK5CYII="
-          /></a>
-        </div>
-        <div class="product">
-          <img class="pro-img" src="assets/Products/f7.png" alt="Product-3" />
-
-          <div class="product-des">
-            <span>Baked & Bounty</span>
-            <h5>Strawberry Filling</h5>
-            <!-- <div class="review-star">
-              <span class="star">&#9733;</span>
-              <span class="star"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAATVJREFUSEu1lc1xgzAQRp/She1DnKO6wJ3YlcRUgjuJu9AxXGy6iDIIgQa8QsIDuggYsW9/vl0pNl5qY/ssApgnP1hqfeCS61g2wDScsVTOsOKkd9xzIPmA1nsovNG73nNaDWAaCqwDhJUZRVYELvfB+x6SFUUSYBqOWH6FdNQoLqlaDABn6I8z8Ini6A22e/8spbz2H7vd0u0flHrXPQeAnIacOopgvedrDHhwRfH9rsWJANrU3UaA9sWsAZmo66XIo4ZaFo5YdFFFb0CiiorK1DyoUE5V6TXTdHHAElVZSn3gKnkyB7Bp14cT0a5erQa97qdOLQNYSmdA6pdIHWTAa4FHKvHzqR2AYYxYbtJFJAOebrh1P0cKOMyuEE0tpWkugiJnWvpoqthVmhzXC5QkHt0c8A+rdHYZoQ9YnwAAAABJRU5ErkJggg=="/></span>
-            </div> -->
-            <div class="price">
-              <h4 class="original-price">650৳</h4>
-              <h4 class="discounted-price">650৳</h4>
-            </div>
-          </div>
-          <a href="#">
-            <img
-              class="icon cart"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARtJREFUSEvdlc0RgjAUhDeeYhfQCXaiV20gJwicXgN61U6gE+nC3KKJQ8yMQhJGZhxzzM/7sru8wLDwYAvXxx8BeC30F+3qVUW5qecs+jIAqiJb+y0DXgsJoILGRUnapajijdhC4+yffQdIkYHhCsDJjIXwRrTQKMCwUyVdPiowk26jxkZJ6qIBQ44auZLUTwGeUhk6VdImBvDJnnHADJu4FOZC20eutarI5GjHaKM5m2Ku7+/x7JkGSGHCahPq92Coh3DDCl42AYlh+5eafIucrzN6IqjAfq5PFcamLMaqoXujFTjIynZnEYLMAoSKhtaj/gfrRhy1xp4xnG4lHYaiY/NJFlmbvKfct2FsPhmwuIKQz1PrURn8NOAO/hCLGVMxPKUAAAAASUVORK5CYII="
-          /></a>
-        </div>
-        <div class="product">
-          <img class="pro-img" src="assets/Products/f8.png" alt="Product-4" />
+          <img class="pro-img" src="assets/Products/f8.png" alt="Product-1" />
 
           <div class="product-des">
             <span>Malaysian</span>
@@ -192,11 +124,11 @@
           <a href="#">
             <img
               class="icon cart"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARtJREFUSEvdlc0RgjAUhDeeYhfQCXaiV20gJwicXgN61U6gE+nC3KKJQ8yMQhJGZhxzzM/7sru8wLDwYAvXxx8BeC30F+3qVUW5qecs+jIAqiJb+y0DXgsJoILGRUnapajijdhC4+yffQdIkYHhCsDJjIXwRrTQKMCwUyVdPiowk26jxkZJ6qIBQ44auZLUTwGeUhk6VdImBvDJnnHADJu4FOZC20eutarI5GjHaKM5m2Ku7+/x7JkGSGHCahPq92Coh3DDCl42AYlh+5eafIucrzN6IqjAfq5PFcamLMaqoXujFTjIynZnEYLMAoSKhtaj/gfrRhy1xp4xnG4lHYaiY/NJFlmbvKfct2FsPhmwuIKQz1PrURn8NOAO/hCLGVMxPKUAAAAASUVORK5CYII="
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARtJREFUSEvdlc0RgjAUhDeeYhfQCXaiV20gJwicXgN61U6gE+nC3KKJQ8yMQhJGZhxzzM/7s    ru8wLDwYAvXxx8BeC30F+3qVUW5qecs+jIAqiJb+y0DXgsJoILGRUnapajijdhC4+yffQdIkYHhCsDJjIXwRrTQKMCwUyVdPiowk26jxkZJ6qIBQ44auZLUTwGeUhk6VdImBvDJnnHADJu4FOZC20eutarI5GjHaKM5m2Ku7+/x7JkGSGHCahPq92Coh3DDCl42AYlh+5eafIucrzN6IqjAfq5PFcamLMaqoXujFTjIynZnEYLMAoSKhtaj/gfrRhy1xp4xnG4lHYaiY/NJFlmbvKfct2FsPhmwuIKQz1PrURn8NOAO/hCLGVMxPKUAAAAASUVORK5CYII="
           /></a>
         </div>
         <div class="product">
-          <img class="pro-img" src="assets/Products/f9.png" alt="Product-5" />
+          <img class="pro-img" src="assets/Products/f9.png" alt="Product-2" />
 
           <div class="product-des">
             <span>Beqa</span>
@@ -217,32 +149,11 @@
           /></a>
         </div>
         <div class="product">
-          <img class="pro-img" src="assets/Products/f10.jpg" alt="Product-6" />
-
-          <div class="product-des">
-            <span>Doking</span>
-            <h5>Boba Pearls</h5>
-            <!-- <div class="review-star">
-              <span class="star">&#9733;</span>
-              <span class="star"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAATVJREFUSEu1lc1xgzAQRp/She1DnKO6wJ3YlcRUgjuJu9AxXGy6iDIIgQa8QsIDuggYsW9/vl0pNl5qY/ssApgnP1hqfeCS61g2wDScsVTOsOKkd9xzIPmA1nsovNG73nNaDWAaCqwDhJUZRVYELvfB+x6SFUUSYBqOWH6FdNQoLqlaDABn6I8z8Ini6A22e/8spbz2H7vd0u0flHrXPQeAnIacOopgvedrDHhwRfH9rsWJANrU3UaA9sWsAZmo66XIo4ZaFo5YdFFFb0CiiorK1DyoUE5V6TXTdHHAElVZSn3gKnkyB7Bp14cT0a5erQa97qdOLQNYSmdA6pdIHWTAa4FHKvHzqR2AYYxYbtJFJAOebrh1P0cKOMyuEE0tpWkugiJnWvpoqthVmhzXC5QkHt0c8A+rdHYZoQ9YnwAAAABJRU5ErkJggg=="/></span>
-            </div> -->
-            <div class="price">
-              <h4 class="original-price">650৳</h4>
-              <h4 class="discounted-price">650৳</h4>
-            </div>
-          </div>
-          <a href="#">
-            <img
-              class="icon cart"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARtJREFUSEvdlc0RgjAUhDeeYhfQCXaiV20gJwicXgN61U6gE+nC3KKJQ8yMQhJGZhxzzM/7sru8wLDwYAvXxx8BeC30F+3qVUW5qecs+jIAqiJb+y0DXgsJoILGRUnapajijdhC4+yffQdIkYHhCsDJjIXwRrTQKMCwUyVdPiowk26jxkZJ6qIBQ44auZLUTwGeUhk6VdImBvDJnnHADJu4FOZC20eutarI5GjHaKM5m2Ku7+/x7JkGSGHCahPq92Coh3DDCl42AYlh+5eafIucrzN6IqjAfq5PFcamLMaqoXujFTjIynZnEYLMAoSKhtaj/gfrRhy1xp4xnG4lHYaiY/NJFlmbvKfct2FsPhmwuIKQz1PrURn8NOAO/hCLGVMxPKUAAAAASUVORK5CYII="
-          /></a>
-        </div>
-        <div class="product">
-          <img class="pro-img" src="assets/Products/f11.png" alt="Product-7" />
+          <img class="pro-img" src="assets/Products/f6.png" alt="Product-3" />
 
           <div class="product-des">
             <span>Baked & Bounty</span>
-            <h5>Corn Syrup</h5>
+            <h5>Blueberry Filling</h5>
             <!-- <div class="review-star">
               <span class="star">&#9733;</span>
               <span class="star"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAATVJREFUSEu1lc1xgzAQRp/She1DnKO6wJ3YlcRUgjuJu9AxXGy6iDIIgQa8QsIDuggYsW9/vl0pNl5qY/ssApgnP1hqfeCS61g2wDScsVTOsOKkd9xzIPmA1nsovNG73nNaDWAaCqwDhJUZRVYELvfB+x6SFUUSYBqOWH6FdNQoLqlaDABn6I8z8Ini6A22e/8spbz2H7vd0u0flHrXPQeAnIacOopgvedrDHhwRfH9rsWJANrU3UaA9sWsAZmo66XIo4ZaFo5YdFFFb0CiiorK1DyoUE5V6TXTdHHAElVZSn3gKnkyB7Bp14cT0a5erQa97qdOLQNYSmdA6pdIHWTAa4FHKvHzqR2AYYxYbtJFJAOebrh1P0cKOMyuEE0tpWkugiJnWvpoqthVmhzXC5QkHt0c8A+rdHYZoQ9YnwAAAABJRU5ErkJggg=="/></span>
@@ -259,11 +170,11 @@
           /></a>
         </div>
         <div class="product">
-          <img class="pro-img" src="assets/Products/f12.png" alt="Product-8" />
+          <img class="pro-img" src="assets/Products/f7.png" alt="Product-4" />
 
           <div class="product-des">
-            <span>Thai Choice</span>
-            <h5>Flavoured Pastes</h5>
+            <span>Baked & Bounty</span>
+            <h5>Strawberry Filling</h5>
             <!-- <div class="review-star">
               <span class="star">&#9733;</span>
               <span class="star"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAATVJREFUSEu1lc1xgzAQRp/She1DnKO6wJ3YlcRUgjuJu9AxXGy6iDIIgQa8QsIDuggYsW9/vl0pNl5qY/ssApgnP1hqfeCS61g2wDScsVTOsOKkd9xzIPmA1nsovNG73nNaDWAaCqwDhJUZRVYELvfB+x6SFUUSYBqOWH6FdNQoLqlaDABn6I8z8Ini6A22e/8spbz2H7vd0u0flHrXPQeAnIacOopgvedrDHhwRfH9rsWJANrU3UaA9sWsAZmo66XIo4ZaFo5YdFFFb0CiiorK1DyoUE5V6TXTdHHAElVZSn3gKnkyB7Bp14cT0a5erQa97qdOLQNYSmdA6pdIHWTAa4FHKvHzqR2AYYxYbtJFJAOebrh1P0cKOMyuEE0tpWkugiJnWvpoqthVmhzXC5QkHt0c8A+rdHYZoQ9YnwAAAABJRU5ErkJggg=="/></span>
@@ -279,30 +190,6 @@
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARtJREFUSEvdlc0RgjAUhDeeYhfQCXaiV20gJwicXgN61U6gE+nC3KKJQ8yMQhJGZhxzzM/7sru8wLDwYAvXxx8BeC30F+3qVUW5qecs+jIAqiJb+y0DXgsJoILGRUnapajijdhC4+yffQdIkYHhCsDJjIXwRrTQKMCwUyVdPiowk26jxkZJ6qIBQ44auZLUTwGeUhk6VdImBvDJnnHADJu4FOZC20eutarI5GjHaKM5m2Ku7+/x7JkGSGHCahPq92Coh3DDCl42AYlh+5eafIucrzN6IqjAfq5PFcamLMaqoXujFTjIynZnEYLMAoSKhtaj/gfrRhy1xp4xnG4lHYaiY/NJFlmbvKfct2FsPhmwuIKQz1PrURn8NOAO/hCLGVMxPKUAAAAASUVORK5CYII="
           /></a>
         </div>
-      </div>
-    </section>
-
-    <section class="section-m1" id="banner">
-      <h4>Stay Connected</h4>
-      <h2>Follow Us On Our <span>Socials</span></h2>
-      <div class="banner-btn">
-        <button class="fb-btn">Facebook</button>
-        <button class="ig-btn">Instagram</button>
-      </div>
-    </section>
-
-    <section id="sm-banner" class="section-p1">
-      <div class="banner-box">
-        <h4>Crazy Deals</h4>
-        <h2>On Grocery items</h2>
-        <span>The best deals on your fingertips</span>
-        <button class="cta2-btn white">Learn More</button>
-      </div>
-      <div class="banner-box2">
-        <h4>Special Sale</h4>
-        <h2>On Bakery items</h2>
-        <span>The best deals on your fingertips</span>
-        <button class="cta2-btn white">Learn More</button>
       </div>
     </section>
 
@@ -367,6 +254,29 @@
       </div>
     </footer>
 
+   <script>
+  var MainImg = document.getElementById("MainImg");
+  var smallimg = document.querySelectorAll(".small-img-col img");
+
+  // Add click event to each small image
+  for (let i = 0; i < smallimg.length; i++) {
+    smallimg[i].onclick = function() {
+      // Fade out current image
+      MainImg.style.opacity = 0;
+      
+      // Wait for fade out to complete, then change image and fade in
+      setTimeout(function() {
+        MainImg.src = smallimg[i].src;
+        MainImg.style.opacity = 1;
+      }, 300); // Matches the 0.3s CSS transition
+    };
+    
+    // Add pointer cursor to the images
+    smallimg[i].style.cursor = "pointer";
+    }
+  </script>
+
     <script src="script.js"></script>
   </body>
+
 </html>
