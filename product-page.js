@@ -21,8 +21,12 @@ function getRandomProducts(count = 4) {
 }
 
 function navigateToProduct(productId) {
-    window.location.href = `sproduct.html?id=${productId}`;
+    document.body.classList.add("fade-out");
+    setTimeout(() => {
+        window.location.href = `sproduct.html?id=${productId}`;
+    }, 300); // delay to let fade-out play
 }
+
 
 function addToCart(productId, quantity = 1) {
     // Add your cart functionality here
@@ -123,18 +127,29 @@ function loadProductData(product) {
         mainImg.alt = product.name;
     }
     
-    // Update small images gallery
+    // Update small images gallery with *other products* instead of same product’s images
     const smallImgGrp = document.getElementById('small-img-grp');
     if (smallImgGrp) {
-        smallImgGrp.innerHTML = '';
-        
-        product.images.forEach((image, index) => {
-            const smallImg = document.createElement('div');
-            smallImg.className = 'small-img-col';
-            smallImg.innerHTML = `<img src="${image}" width="100%" class="small-img" alt="${product.name} ${index + 1}">`;
+    smallImgGrp.innerHTML = '';
+
+    // Get 4 other products (exclude the current one)
+    const otherProducts = getAllProducts().filter(p => p.id !== product.id).slice(0, 4);
+
+    otherProducts.forEach(related => {
+        const smallImg = document.createElement('div');
+        smallImg.className = 'small-img-col';
+        smallImg.innerHTML = `
+            <img 
+                src="${related.images[0]}" 
+                width="100%" 
+                class="small-img" 
+                alt="${related.name}" 
+                data-product-id="${related.id}" />
+              `;
             smallImgGrp.appendChild(smallImg);
         });
     }
+
     
     // Update features list
     const featuresList = document.getElementById('features-list');
@@ -153,17 +168,19 @@ function loadProductData(product) {
 }
 
 function initializeImageGallery() {
-    const mainImg = document.getElementById('MainImg');
     const smallImages = document.querySelectorAll('.small-img');
     
     smallImages.forEach(img => {
         img.addEventListener('click', function() {
-            if (mainImg) {
-                mainImg.src = this.src;
+            const productId = this.getAttribute('data-product-id');
+            if (productId) {
+                navigateToProduct(productId); // open that product’s full page
             }
         });
     });
 }
+
+
 
 function loadRelatedProducts(category, currentProductId) {
     const relatedProductsContainer = document.getElementById('related-products');
@@ -202,8 +219,10 @@ function loadRelatedProducts(category, currentProductId) {
                     </div>
                 </div>
                 <a href="#" onclick="event.stopPropagation(); addToCart('${product.id}'); return false;">
-                    <img class="icon cart" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARtJREFUSEvdlc0RgjAUhDeeYhfQCXaiV20gJwicXgN61U6gE+nC3KKJQ8yMQhJGZhxzzM/7sru8wLDwYAvXxx8BeC30F+3qVUW5qecs+jIAqiJb+y0DXgsJoILHRUnapajijdhC4+yffQdIkYHhCsDJjIXwRrTQKMCwUyVdPiowk26jxkZJ6qIBQ44auZLUTwGeUhk6VdImBfDJnnHADJu4FOZC20eutarI5GjHaKM5m2Ku7+/x7JkGSGHCahPq92Coh3DDCl42AYlh+5eafIucrzN6IqjAfq5PFcamLMaqoXujFTjIynZnEYLMAoSKhtaj/gfrRhy1xp4xnG4lHYaiY/NJFlmbvKfct2FsPhmwuIKQz1PrURn8NOAO/hCLGVMxPKUAAAAASUVORK5CYII=" />
-                </a>
+                    <img
+              class="icon cart"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARtJREFUSEvdlc0RgjAUhDeeYhfQCXaiV20gJwicXgN61U6gE+nC3KKJQ8yMQhJGZhxzzM/7s    ru8wLDwYAvXxx8BeC30F+3qVUW5qecs+jIAqiJb+y0DXgsJoILGRUnapajijdhC4+yffQdIkYHhCsDJjIXwRrTQKMCwUyVdPiowk26jxkZJ6qIBQ44auZLUTwGeUhk6VdImBvDJnnHADJu4FOZC20eutarI5GjHaKM5m2Ku7+/x7JkGSGHCahPq92Coh3DDCl42AYlh+5eafIucrzN6IqjAfq5PFcamLMaqoXujFTjIynZnEYLMAoSKhtaj/gfrRhy1xp4xnG4lHYaiY/NJFlmbvKfct2FsPhmwuIKQz1PrURn8NOAO/hCLGVMxPKUAAAAASUVORK5CYII="/>
+              </a>
             </div>
         `;
         relatedProductsContainer.innerHTML += productHTML;
