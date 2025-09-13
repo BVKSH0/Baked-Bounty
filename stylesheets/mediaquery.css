@@ -53,8 +53,19 @@
     color: #465b52;
     margin: 10px 0 10px 0;
   }
+
   footer a {
     margin: 15px 0px 0px 0px;
+  }
+
+  #about-head {
+  flex-direction: column;
+  }
+}
+
+@media (max-width: 1024px) {
+  #about-head {
+    flex-direction: column;
   }
 }
 
@@ -132,16 +143,20 @@
   #prodetails {
     display: flex;
     flex-direction: column;
-}
+  } 
 
-#prodetails .single-pro-image {
+  #prodetails .single-pro-image {
     width: 100%;
     margin-right: 0px;
 
-}
+  }
 
-#prodetails .single-pro-details {
+  #prodetails .single-pro-details {
     width: 100%;
-}
+  }
+
+  #about-head {
+    flex-direction: column;
+  }
 
 }

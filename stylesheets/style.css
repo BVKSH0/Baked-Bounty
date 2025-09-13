@@ -120,6 +120,7 @@ button.white {
 
 .icon {
   cursor: pointer;
+  /* font-size: 35px; */
 }
 
 #navbar ul {

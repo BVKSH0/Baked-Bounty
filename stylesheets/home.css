@@ -371,8 +371,9 @@ footer .footer-logo {
   width: 100%;
   text-align: center;
 }
-.copyright p span {
+.copyright p span a {
   color: #023430;
+  text-decoration: underline;
 }
 
 footer h4 {
