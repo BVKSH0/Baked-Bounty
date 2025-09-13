@@ -60,8 +60,12 @@
     font-size: 13px;   
 }
 
+.trashcon {
+    font-size: 18px;
+}
 
-#sm-banner .banner-box, .banner-box2#sm-banner .banner-box, .banner-box2 {
+
+#sm-banner .banner-box, .banner-box2#sm-banner .banner-box {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -78,6 +82,10 @@
 
 #sm-banner .banner-box2 {
     background-image: url(none);
+}
+
+.banner-box2 {
+    justify-content: flex-start;
 }
 
 
