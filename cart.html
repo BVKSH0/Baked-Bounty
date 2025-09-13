@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="stylesheet" href="stylesheets/home.css" />
+    <link rel="stylesheet" href="stylesheets/shop.css" />
+    <link rel="stylesheet" href="stylesheets/cart.css" />
+    <link rel="stylesheet" href="stylesheets/mediaquery.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Baked Bounty</title>
+  </head>
+
+  <body>
+
+    <section id="header">
+      <a href="#"><img src="assets/logo.png" class="nav-logo" alt="Logo" /></a>
+
+      <nav>
+        <div id="navbar">
+          <ul>
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li
+              ><a class="active" href="cart.html"
+                ><img
+                  alt="shopping Cart"
+                  class="icon"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAThJREFUWEftlwEOQTEMhvtuwklwEpwEJ8FJcBKchPcnr9K3dVs3Sx7JmshLqPbr326qo4mtmzg/fQMwIyK8YNfSQkoAkHRHRBsn6YOIzv17+xyYXIAlEV0SCQ45EDkAbnKuGM+Fo4gZIgcAlQMCpiVAa+CDJ6BWwzMqmBUA/T6KgUNwzaSfSYUSgG1f5SlS1ssA+vm6FQCTjcmHzRPScqvQBvgWtUCecQRYiyGDAggeMrSK7we3Vd59oSmAAO4ZTxVi/dwbTg2Ae2gNmus3miErAKS7DZl4FkKJMaDPiG8RgDxSd9FjDQJ9515rav4nAIaHJ59vw1AL5KRrvkUK5A5azL8BNAWaAk2B31dALp81b0COlVRALpa1AfA7MdqSQjshILDr82pVAwT7hPevybqU1gBQY0wO8AZ0t1YhgcMP9wAAAABJRU5ErkJggg=="
+              /></a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="ham-nav">
+          <a href="cart.html"
+            ><img
+              alt="shopping Cart"
+              class="nav-icon"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAThJREFUWEftlwEOQTEMhvtuwklwEpwEJ8FJcBKchPcnr9K3dVs3Sx7JmshLqPbr326qo4mtmzg/fQMwIyK8YNfSQkoAkHRHRBsn6YOIzv17+xyYXIAlEV0SCQ45EDkAbnKuGM+Fo4gZIgcAlQMCpiVAa+CDJ6BWwzMqmBUA/T6KgUNwzaSfSYUSgG1f5SlS1ssA+vm6FQCTjcmHzRPScqvQBvgWtUCecQRYiyGDAggeMrSK7we3Vd59oSmAAO4ZTxVi/dwbTg2Ae2gNmus3miErAKS7DZl4FkKJMaDPiG8RgDxSd9FjDQJ9515rav4nAIaHJ59vw1AL5KRrvkUK5A5azL8BNAWaAk2B31dALp81b0COlVRALpa1AfA7MdqSQjshILDr82pVAwT7hPevybqU1gBQY0wO8AZ0t1YhgcMP9wAAAABJRU5ErkJggg=="
+          /></a>
+          <div class="hamburger-nav">
+            <div class="hamburger-menu">
+              <div class="hamburger-icon" onclick="toggleMenu()">
+                <span></span> <span></span> <span></span>
+              </div>
+
+              <div class="menu-links">
+                <ul>
+                  <li><a href="Index.html">Home</a></li>
+                  <li><a href="shop.html">Shop</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+    <section id="page-header">
+      <h2>#contact_us</h2>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, modi.</p>
+    </section>
+
+    <section id="cart" class="section-p1">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Remove</td>
+                    <td>image</td>
+                    <td>Product</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href=""><i class='bx bx-trash'></i></i></a></td>
+                    <td><img src="assets/Products/f1.png" alt="product-f1"></td>
+                    <td>Masako Meat Seasoning</td>
+                    <td>650৳</td>
+                    <td><input type="number" value="1"></td>
+                    <td>650৳</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td><a href=""><i class='bx bx-trash'></i></i></a></td>
+                    <td><img src="assets/Products/f2.png" alt="product-f2"></td>
+                    <td>Teriyaki Sauce</td>
+                    <td>650৳</td>
+                    <td><input type="number" value="1"></td>
+                    <td>650৳</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="sm-banner" class="section-p1">
+      <div class="banner-box">
+        <h2>Thank You For Shopping With Us</h2>
+      </div>
+      <div class="banner-box2">
+       <div id="coupon">
+            <h3>Apply Coupon</h3>
+            <div>
+                <input type="text" placeholder="Enter Your coupon">
+                <button class="normal">Apply</button>
+            </div> 
+        </div>
+
+        <div id="subtotal">
+            <h3>Cart Totals</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td>650৳</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong>650৳</strong></td>
+                </tr>
+            </table>
+            <button class="normal">Proceed to checkout</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="section-p1">
+      <div class="col">
+        <img class="footer-logo" src="assets/logo.png" alt="Baked Bounty" />
+      </div>
+
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign in</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+
+        <div class="follow">
+          <h4 class="followus">Follow Us</h4>
+          <div class="icon footer-icon">
+            <img
+              class="ficon"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAALxJREFUSEvtlNENgzAMBR+bsEkZpUxCO0lhkraTlFHakxIpQhArViL1A3+BhN45Z5NOjatrnK+/A/SSJkmDJJ5XScvPwu3IRMkJCPzsBM2SxhoAuqT7bVUDPIMaAK/QNYqyVaIIPWii7jnvKdELwDlqzLIAcVsIeiRphL/DO7oOVVkAQq9Gm1ldNQBZXRaA1byEEzDgOGSURC0A3IpSO+kWVRvyCSi6rs8ZmNdKc0VmB3sfWH+yK9R7XbtgX1iPKhmVuQM1AAAAAElFTkSuQmCC"
+            />
+            <img
+              class="ficon"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAXJJREFUSEvFlc1NRDEMhGeb4ApUAly4UwASVAJI9AGUwQmohJ8DdypY3oc8T1aSzWaFnjaX/YntscdjZ6WFz2rh+NobwJGkK0knkk47VX7E3auku8nHv2eXVgUEfggLHHDuHZIhCWyfJsPbbFwCYPweQc926A9+L2F/nZMqAcicCo5b5TYAL4OaH0kXreRKALKn1Fb2AJPp4XT/Nn1/lHQu6VnSV/zvKmb/EmAdjpTpQ1AqK5tNIveSviUdBP8AYA8Df2cEACeCoxIaaIXdRLVzsEiESue42wCsKAfPbfAddFhp7mEXIAfrNd2Ka9kPA0AJVGxSFT37FwDc04MWRQZHECiKM0QRxlaRFcSnpzQ3Ge6zpHcGIKueTAme989WgGpQonTvG5bfZwQ1LVlZ1aC2VgW8l5mNrCWrKlNcDZqNvC6q9bsBKdOY56L54HiA8q4fWdfYZEU1V0XeP+jf3PcA/Gagsurt2NuTOdLUIZvFK/gFHzRoGdyhE9oAAAAASUVORK5CYII="
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <h4>Contact</h4>
+        <p><strong>Address:</strong> 3/10 Taj Mahal Road, Mohammadpur, Dhaka</p>
+        <p><strong>E-mail:</strong> md3204756@gmail.com</p>
+        <p><strong>Phone:</strong> +880 1984-537416</p>
+        <p><strong>Hours:</strong> 24/7</p>
+
+        <div class="col payment">
+          <h4>Secured Payment Gateways</h4>
+          <img class="pay-icon" src="assets/bkash.png" alt="" />
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&#169;2025, <span> <a href="mailto:ahmadsayeedbaksh.business@gmail.com">Ahmadsayeedbaksh.business@gmail.com</a></span></p>
+      </div>
+    </footer>
+
+   <script src="js/script.js"></script>
+   <script src="js/about.js"></script>
+
+  </body>
+</html>

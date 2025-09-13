@@ -5,6 +5,9 @@
   margin-right: 25px;
 } */
 
+#page-header {
+  background-image: url("/assets/extra_headers/page-header-about.jpeg");
+}
 
 #contact-details {
     display: flex;
