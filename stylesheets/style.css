@@ -268,14 +268,13 @@ nav .nav-icon {
   transform: none;
 }
 
-
 /* Add these styles to your stylesheets/style.css file */
+/* UPDATED: Cart Badge Styles with responsive visibility fixes */
 
-/* Cart Badge Styles */
 .cart-badge {
     position: absolute;
-    top: -5px;
-    right: -5px;
+    top: -7px;
+    right: -10px;
     background: #ff4444;
     color: white;
     border-radius: 50%;
@@ -341,7 +340,7 @@ nav .nav-icon {
     }
 }
 
-/* Improved Cart Icon Positioning */
+/* UPDATED: Improved Cart Icon Positioning with responsive visibility */
 #navbar li:last-child a {
     position: relative;
     display: inline-block;
@@ -352,12 +351,43 @@ nav .nav-icon {
     display: inline-block;
 }
 
-/* Cart Button Hover Effects */
-.product .cart:hover {
+/* FIXED: Hide cart badge in hamburger menu when desktop nav is visible */
+@media (min-width: 769px) {
+    #ham-nav .cart-badge {
+        display: none !important;
+    }
+}
+
+/* FIXED: Hide cart badge in desktop nav when mobile nav is visible */
+@media (max-width: 768px) {
+    #navbar .cart-badge {
+        display: none !important;
+    }
+}
+
+/* Cart Button Hover Effects - UPDATED to prevent spam clicking */
+.product .cart {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.product .cart:hover:not(:disabled) {
     background-color: #088178;
     color: white;
     transform: scale(1.1);
-    transition: all 0.3s ease;
+}
+
+.product .cart:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Add to Cart Button - prevent spam clicking */
+#add-to-cart-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #ccc;
 }
 
 /* Empty Cart Styles */
@@ -415,20 +445,20 @@ nav .nav-icon {
 }
 
 /* Button Hover Effects */
-button.normal:hover {
+button.normal:hover:not(:disabled) {
     background-color: #066963;
     transform: translateY(-2px);
     transition: all 0.3s ease;
 }
 
-/* Mobile Responsiveness for Cart Badge */
+/* UPDATED: Mobile Responsiveness for Cart Badge */
 @media (max-width: 768px) {
     .cart-badge {
         width: 18px;
         height: 18px;
         font-size: 10px;
-        top: -3px;
-        right: -3px;
+        top: -2px;
+        right: 7px;
     }
     
     .cart-notification {
@@ -436,6 +466,11 @@ button.normal:hover {
         right: 10px;
         left: 10px;
         max-width: none;
+    }
+    
+    /* Ensure hamburger menu cart icon can show badge when menu is open */
+    #ham-nav.menu-open .cart-badge {
+        display: flex !important;
     }
 }
 
@@ -473,4 +508,13 @@ button.normal:hover {
 .cart-error {
     color: #dc3545;
     font-weight: bold;
+}
+
+/* Additional fix for preventing multiple badges */
+a[href="cart.html"] {
+    position: relative;
+}
+
+a[href="cart.html"] .cart-badge:not(:first-of-type) {
+    display: none;
 }

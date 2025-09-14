@@ -125,6 +125,10 @@
     margin:  0px  10px 10px 0px;
 }
 
+#subtotal button.chckout {
+      margin:  0px  10px 10px 0px;
+}
+
 #subtotal .subbtns {
     display: flex;
     flex-direction: row;

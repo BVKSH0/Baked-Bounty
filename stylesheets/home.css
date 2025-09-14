@@ -351,7 +351,7 @@
 }
 
 /* FOOTER */
-
+/* 
 footer {
   display: flex;
   flex-wrap: wrap;
@@ -430,4 +430,661 @@ footer .follow .ficon:hover {
 footer .pay-icon {
   width: 30px;
   height: 30px;
+} */
+/* Modern Footer Styles - Add this to your stylesheets/modern-footer.css */
+
+/* Replace your existing footer styles with these */
+
+/* Modern Footer Styles */
+footer.modern-footer {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 60px 0 30px;
+    margin-top: 50px;
+    box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+    gap: 60px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    color: #2c3e50;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 30px;
+    height: 2px;
+    background: #088178;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    margin-bottom: 12px;
+}
+
+.footer-section a {
+    color: #6c757d;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-section a:hover {
+    color: #088178;
+    transform: translateX(5px);
+}
+
+/* Brand Section */
+.brand-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.brand-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.brand-info p {
+    color: #6c757d;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.brand-info strong {
+    color: #2c3e50;
+}
+
+/* Social Media */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.social-links a:hover {
+    background: #088178;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* App Download Section */
+.app-section h3 {
+    color: #2c3e50;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.app-subtitle {
+    color: #6c757d;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.app-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.app-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    background: #000;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.app-btn:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+.app-btn i {
+    font-size: 20px;
+}
+
+.app-btn-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.app-btn-text .small {
+    font-size: 10px;
+    opacity: 0.8;
+}
+
+.app-btn-text .large {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Payment Methods */
+.payment-title {
+    color: #2c3e50;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.payment-icon {
+    width: 50px;
+    height: 32px;
+    background: white;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-weight: bold;
+    font-size: 11px;
+    color: white;
+}
+
+.visa { background: linear-gradient(135deg, #1a1f71, #0f3cc9); }
+.mastercard { background: linear-gradient(135deg, #eb001b, #f79e1b); }
+.maestro { background: linear-gradient(135deg, #6c1d45, #00579f); }
+.amex { background: linear-gradient(135deg, #006fcf, #00a1e0); }
+.bkash { 
+    background: linear-gradient(135deg, #e2136e, #f7931e);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid #dee2e6;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #6c757d;
+    font-size: 13px;
+}
+
+.footer-bottom a {
+    color: #088178;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    footer.modern-footer {
+        padding: 40px 0 20px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: left;
+    }
+    
+    .footer-container {
+        padding: 0 20px;
+    }
+    
+    /* Brand Section Mobile Styling */
+    .brand-section {
+        align-items: flex-start;
+        order: 1;
+    }
+    
+    .brand-logo {
+        width: 100px;
+        margin-bottom: 15px;
+    }
+    
+    .brand-info p {
+        font-size: 13px;
+        margin-bottom: 6px;
+        line-height: 1.5;
+    }
+    
+    .social-links {
+        justify-content: flex-start;
+        margin-top: 15px;
+        gap: 12px;
+    }
+    
+    .social-links a {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    
+    /* Section Headers Mobile Styling */
+    .footer-section h3 {
+        font-size: 16px;
+        margin-bottom: 15px;
+        color: #2c3e50;
+    }
+    
+    .footer-section h3::after {
+        width: 25px;
+        height: 2px;
+    }
+    
+    /* About Section Mobile Styling */
+    .footer-section:nth-child(2) {
+        order: 2;
+    }
+    
+    /* My Account Section Mobile Styling */
+    .footer-section:nth-child(3) {
+        order: 3;
+    }
+    
+    /* Install App Section Mobile Styling */
+    .footer-section:nth-child(4) {
+        order: 4;
+    }
+    
+    .app-buttons {
+        flex-direction: row;
+        gap: 8px;
+        margin-bottom: 25px;
+    }
+    
+    .app-btn {
+        flex: 1;
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+    
+    .app-btn i {
+        font-size: 18px;
+    }
+    
+    .app-btn-text .small {
+        font-size: 9px;
+    }
+    
+    .app-btn-text .large {
+        font-size: 12px;
+    }
+    
+    .payment-methods {
+        justify-content: flex-start;
+        gap: 8px;
+    }
+    
+    .payment-icon {
+        width: 45px;
+        height: 28px;
+        font-size: 10px;
+    }
+    
+    .payment-title {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+    
+    /* Footer Bottom Mobile */
+    .footer-bottom {
+        padding-top: 20px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .footer-bottom p {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    footer.modern-footer {
+        padding: 30px 0 15px;
+    }
+    
+    .footer-container {
+        padding: 0 15px;
+    }
+    
+    .footer-content {
+        gap: 25px;
+    }
+    
+    .brand-logo {
+        width: 90px;
+    }
+    
+    .brand-info p {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+    
+    .social-links {
+        gap: 10px;
+    }
+    
+    .social-links a {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+    
+    .footer-section h3 {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+    
+    .footer-section a {
+        font-size: 13px;
+    }
+    
+    .footer-section li {
+        margin-bottom: 10px;
+    }
+    
+    .app-buttons {
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+    }
+    
+    .app-btn {
+        justify-content: center;
+        padding: 8px 15px;
+    }
+    
+    .payment-methods {
+        justify-content: flex-start;
+        gap: 6px;
+    }
+    
+    .payment-icon {
+        width: 40px;
+        height: 26px;
+        font-size: 9px;
+    }
+    
+    .footer-bottom {
+        padding-top: 15px;
+        margin-top: 15px;
+    }
+    
+    .footer-bottom p {
+        font-size: 11px;
+    }
+}
+
+/* Mobile Footer Enhancement - Add this to your existing modern-footer.css or create a separate file */
+
+/* Additional Mobile Styles for Tab/Mobile Layout */
+@media (max-width: 1024px) {
+    /* Tablet specific styling */
+    footer.modern-footer {
+        background: #f8f9fa;
+        border-top: 1px solid #e9ecef;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        text-align: left;
+    }
+    
+    .footer-container {
+        max-width: 100%;
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile specific enhancements */
+    footer.modern-footer {
+        background: #f8f9fa;
+        padding: 35px 0 20px;
+        box-shadow: 0 -1px 5px rgba(0,0,0,0.05);
+    }
+    
+    /* Brand Section - exactly like reference */
+    .brand-section {
+        border-bottom: 1px solid #e9ecef;
+        padding-bottom: 25px;
+        margin-bottom: 5px;
+    }
+    
+    .brand-logo {
+        width: 80px;
+        height: auto;
+        margin-bottom: 12px;
+        filter: contrast(1.1);
+    }
+    
+    /* Contact Information Styling */
+    .brand-info {
+        margin-bottom: 15px;
+    }
+    
+    .brand-info p {
+        color: #555;
+        font-size: 12px;
+        margin-bottom: 4px;
+        line-height: 1.4;
+        font-weight: 400;
+    }
+    
+    .brand-info strong {
+        color: #333;
+        font-weight: 600;
+    }
+    
+    /* Follow Us Section */
+    .social-links {
+        margin-top: 12px;
+        gap: 8px;
+    }
+    
+    .social-links::before {
+        content: "Follow Us";
+        display: block;
+        color: #333;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+    
+    .social-links a {
+        width: 28px;
+        height: 28px;
+        background: #333;
+        color: white;
+        font-size: 14px;
+        border-radius: 3px;
+        box-shadow: none;
+    }
+    
+    .social-links a:hover {
+        background: #088178;
+        transform: none;
+    }
+    
+    /* Section Headers - cleaner mobile style */
+    .footer-section h3 {
+        color: #333;
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        padding-bottom: 0;
+    }
+    
+    .footer-section h3::after {
+        display: none;
+    }
+    
+    /* Links styling */
+    .footer-section a {
+        color: #666;
+        font-size: 13px;
+        padding: 2px 0;
+        border-bottom: none;
+    }
+    
+    .footer-section a:hover {
+        color: #333;
+        transform: none;
+        text-decoration: underline;
+    }
+    
+    .footer-section li {
+        margin-bottom: 8px;
+    }
+    
+    /* Remove extra spacing between sections */
+    .footer-content {
+        gap: 25px;
+    }
+    
+    /* App section mobile adjustments */
+    .footer-section:last-child .app-subtitle {
+        font-size: 12px;
+        margin-bottom: 12px;
+        color: #666;
+    }
+    
+    .app-buttons {
+        margin-bottom: 20px;
+        gap: 6px;
+    }
+    
+    .app-btn {
+        background: #333;
+        border-radius: 4px;
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+    
+    .app-btn:hover {
+        background: #555;
+        transform: none;
+    }
+    
+    .payment-title {
+        font-size: 12px;
+        color: #333;
+        font-weight: 600;
+    }
+    
+    .payment-methods {
+        gap: 6px;
+        margin-top: 8px;
+    }
+    
+    .payment-icon {
+        width: 38px;
+        height: 24px;
+        font-size: 8px;
+        border-radius: 3px;
+    }
+    
+    /* Footer bottom - minimal style */
+    .footer-bottom {
+        background: transparent;
+        border-top: 1px solid #e9ecef;
+        padding-top: 15px;
+        margin-top: 20px;
+    }
+    
+    .footer-bottom p {
+        color: #666;
+        font-size: 11px;
+        text-align: center;
+    }
+}
+
+/* Very small mobile devices */
+@media (max-width: 480px) {
+    .footer-container {
+        padding: 0 20px;
+    }
+    
+    .brand-logo {
+        width: 70px;
+    }
+    
+    .brand-info p {
+        font-size: 11px;
+    }
+    
+    .social-links a {
+        width: 26px;
+        height: 26px;
+        font-size: 12px;
+    }
+    
+    .footer-section h3 {
+        font-size: 14px;
+    }
+    
+    .footer-section a {
+        font-size: 12px;
+    }
+    
+    .app-buttons {
+        flex-direction: column;
+    }
+    
+    .payment-icon {
+        width: 35px;
+        height: 22px;
+    }
 }
