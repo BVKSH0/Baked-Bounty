@@ -1,9 +1,10 @@
-// js/cart.js - Fixed Cart Management System
+// js/cart.js - Final Fixed Cart Management System
 
 // Cart class to manage all cart operations
 class Cart {
     constructor() {
         this.items = this.loadCart();
+        this.isProcessing = false; // Prevent double processing
         this.updateCartDisplay();
     }
 
@@ -27,13 +28,22 @@ class Cart {
         }
     }
 
-    // Add item to cart
+    // FIXED: Add item to cart with proper duplicate prevention
     addItem(productId, quantity = 1) {
+        // Prevent multiple rapid calls
+        if (this.isProcessing) {
+            console.log('Cart operation in progress, please wait...');
+            return false;
+        }
+
+        this.isProcessing = true;
+        
         // Get product data
         const product = window.products ? window.products[productId] : null;
         
         if (!product) {
             console.error('Product not found:', productId);
+            this.isProcessing = false;
             return false;
         }
 
@@ -58,6 +68,12 @@ class Cart {
         this.saveCart();
         this.updateCartDisplay();
         this.showAddToCartNotification(product.name);
+        
+        // Reset processing flag after a short delay
+        setTimeout(() => {
+            this.isProcessing = false;
+        }, 500);
+        
         return true;
     }
 
@@ -105,7 +121,7 @@ class Cart {
         this.updateCartPage();
     }
 
-    // FIXED: Update cart display (cart icon badge) - only show on visible cart icon
+    // FIXED: Update cart display - exclude footer links and only show on navigation cart icons
     updateCartDisplay() {
         const totalItems = this.getTotalItems();
         
@@ -114,15 +130,16 @@ class Cart {
         existingBadges.forEach(badge => badge.remove());
         
         if (totalItems > 0) {
-            // Get all cart icons
-            const cartIcons = document.querySelectorAll('a[href="cart.html"]');
+            // FIXED: Only target navigation cart icons, not footer cart links
+            const navCartIcons = document.querySelectorAll('#header a[href="cart.html"], #navbar a[href="cart.html"], #ham-nav a[href="cart.html"]');
             
-            cartIcons.forEach(cartIcon => {
-                // Check if the cart icon is visible (not in mobile menu when desktop is shown)
+            navCartIcons.forEach(cartIcon => {
+                // Check if the cart icon is visible and not in footer
                 const isVisible = this.isElementVisible(cartIcon);
+                const isInFooter = cartIcon.closest('footer') !== null;
                 
-                if (isVisible) {
-                    // Create and add badge only to visible cart icons
+                if (isVisible && !isInFooter) {
+                    // Create and add badge only to visible navigation cart icons
                     const cartBadge = document.createElement('span');
                     cartBadge.className = 'cart-badge';
                     cartBadge.textContent = totalItems;
@@ -147,10 +164,7 @@ class Cart {
                style.visibility !== 'hidden' && 
                style.opacity !== '0' &&
                rect.width > 0 && 
-               rect.height > 0 &&
-               // Additional check for parent visibility (for hamburger menu)
-               !element.closest('.hamburger-nav[style*="display: none"]') &&
-               !element.closest('#ham-nav[style*="display: none"]');
+               rect.height > 0;
     }
 
     // Show add to cart notification
@@ -218,6 +232,7 @@ class Cart {
                     align-items: center;
                     justify-content: center;
                     min-width: 20px;
+                    z-index: 10;
                 }
             `;
             document.head.appendChild(style);
@@ -229,7 +244,9 @@ class Cart {
         setTimeout(() => {
             notification.style.animation = 'slideOut 0.3s ease-in';
             setTimeout(() => {
-                notification.remove();
+                if (notification.parentNode) {
+                    notification.remove();
+                }
             }, 300);
         }, 3000);
     }
@@ -315,16 +332,23 @@ window.addToCart = function(productId, quantity = 1) {
     return window.cart.addItem(productId, quantity);
 };
 
-// FIXED: Function to handle cart icon clicks with product mapping - prevents double adding
+// FIXED: Function to handle cart icon clicks - improved duplicate prevention
 function handleCartClick(cartButton) {
-    // Prevent double-clicking by disabling button temporarily
-    if (cartButton.disabled) return;
+    // Check if button is already processing or disabled
+    if (cartButton.disabled || cartButton.classList.contains('processing')) {
+        return false;
+    }
     
+    // Mark button as processing
     cartButton.disabled = true;
-    setTimeout(() => {
-        cartButton.disabled = false;
-    }, 1000); // Re-enable after 1 second
-
+    cartButton.classList.add('processing');
+    
+    // Visual feedback
+    const originalText = cartButton.innerHTML;
+    if (cartButton.tagName === 'IMG') {
+        cartButton.style.opacity = '0.6';
+    }
+    
     // Define product mappings based on image sources
     const productMappings = {
         'assets/Products/f1.png': 'masako-seasoning',
@@ -350,21 +374,43 @@ function handleCartClick(cartButton) {
         const productId = productMappings[imageSrc];
         
         if (productId) {
-            window.addToCart(productId, 1);
+            const success = window.addToCart(productId, 1);
+            
+            // Re-enable button after processing
+            setTimeout(() => {
+                cartButton.disabled = false;
+                cartButton.classList.remove('processing');
+                if (cartButton.tagName === 'IMG') {
+                    cartButton.style.opacity = '1';
+                }
+            }, 1000);
+            
+            return success;
         } else {
             console.error('Product ID not found for image:', imageSrc);
         }
     }
+    
+    // Re-enable button if there was an error
+    cartButton.disabled = false;
+    cartButton.classList.remove('processing');
+    if (cartButton.tagName === 'IMG') {
+        cartButton.style.opacity = '1';
+    }
+    
+    return false;
 }
 
-// FIXED: Initialize cart functionality when DOM is loaded - prevents duplicate event listeners
+// FIXED: Initialize cart functionality - prevent duplicate listeners and improve event handling
 document.addEventListener('DOMContentLoaded', function() {
     // Update cart display on page load
     window.cart.updateCartDisplay();
     
-    // Update cart display on window resize to handle responsive visibility
+    // Update cart display on window resize
     window.addEventListener('resize', () => {
-        window.cart.updateCartDisplay();
+        setTimeout(() => {
+            window.cart.updateCartDisplay();
+        }, 100);
     });
     
     // If on cart page, update cart content
@@ -372,36 +418,35 @@ document.addEventListener('DOMContentLoaded', function() {
         window.cart.updateCartPage();
     }
 
-    // FIXED: Handle cart button clicks on product listings (home, shop pages) - remove duplicate listeners
-    const cartButtons = document.querySelectorAll('.cart');
-    cartButtons.forEach(function(button) {
-        // Remove any existing listeners to prevent duplicates
-        const newButton = button.cloneNode(true);
-        button.parentNode.replaceChild(newButton, button);
-        
-        // Add single event listener
-        newButton.addEventListener('click', function(e) {
+    // FIXED: Handle cart button clicks with improved event delegation
+    document.addEventListener('click', function(e) {
+        // Check if clicked element is a cart button
+        if (e.target.classList.contains('cart') || 
+            (e.target.closest('a') && e.target.closest('a').querySelector('.cart'))) {
+            
             e.preventDefault();
             e.stopPropagation();
-            handleCartClick(this);
-        });
+            
+            const cartButton = e.target.classList.contains('cart') ? 
+                             e.target : 
+                             e.target.closest('a').querySelector('.cart');
+            
+            handleCartClick(cartButton);
+        }
     });
 
-    // FIXED: Handle add to cart button on product detail page - prevent double adding
+    // FIXED: Handle add to cart button on product detail page
     const addToCartBtn = document.getElementById('add-to-cart-btn');
     if (addToCartBtn) {
-        // Remove any existing listeners
-        const newBtn = addToCartBtn.cloneNode(true);
-        addToCartBtn.parentNode.replaceChild(newBtn, addToCartBtn);
-        
-        newBtn.addEventListener('click', function() {
+        addToCartBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
             // Prevent double-clicking
-            if (this.disabled) return;
+            if (this.disabled) return false;
             
             this.disabled = true;
-            setTimeout(() => {
-                this.disabled = false;
-            }, 1000);
+            const originalText = this.textContent;
+            this.textContent = 'Adding...';
             
             const urlParams = new URLSearchParams(window.location.search);
             const productId = urlParams.get('id');
@@ -409,8 +454,20 @@ document.addEventListener('DOMContentLoaded', function() {
             const quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
             
             if (productId) {
-                window.addToCart(productId, quantity);
+                const success = window.addToCart(productId, quantity);
+                
+                setTimeout(() => {
+                    this.disabled = false;
+                    this.textContent = originalText;
+                }, 1000);
+                
+                return success;
             }
+            
+            // Re-enable if failed
+            this.disabled = false;
+            this.textContent = originalText;
+            return false;
         });
     }
 });

@@ -1092,3 +1092,155 @@ footer.modern-footer {
         height: 22px;
     }
 }
+
+
+/* Add these styles to your existing CSS files - Cart Badge Fixes */
+
+/* FIXED: Cart Badge Styles - Only for navigation, not footer */
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4444;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* FIXED: Ensure footer cart links never get badges */
+footer .cart-badge,
+footer a[href="cart.html"] .cart-badge,
+.footer-section .cart-badge,
+.modern-footer .cart-badge {
+    display: none !important;
+}
+
+/* FIXED: Only navigation cart icons should have badges */
+#header a[href="cart.html"],
+#navbar a[href="cart.html"], 
+#ham-nav a[href="cart.html"] {
+    position: relative;
+}
+
+/* FIXED: Cart button processing state */
+.cart.processing,
+.cart:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* FIXED: Add to cart button states */
+#add-to-cart-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #ccc;
+    color: #666;
+}
+
+/* Improved hover effects for cart buttons */
+.product .cart {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.product .cart:hover:not(:disabled):not(.processing) {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Mobile cart badge adjustments */
+@media (max-width: 768px) {
+    .cart-badge {
+        width: 18px;
+        height: 18px;
+        font-size: 11px;
+        top: -3px;
+        right: -3px;
+    }
+    
+    /* Ensure mobile navigation cart icons can have badges */
+    #ham-nav a[href="cart.html"] {
+        position: relative;
+    }
+    
+    /* But never in footer on mobile */
+    footer a[href="cart.html"] .cart-badge {
+        display: none !important;
+    }
+}
+
+/* Cart notification improvements */
+.cart-notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: #088178;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out;
+    max-width: 300px;
+}
+
+.cart-notification .notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.cart-notification .notification-content i {
+    font-size: 18px;
+    color: #4CAF50;
+}
+
+/* Animation keyframes */
+@keyframes slideIn {
+    from { 
+        transform: translateX(100%); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+}
+
+@keyframes slideOut {
+    from { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+    to { 
+        transform: translateX(100%); 
+        opacity: 0; 
+    }
+}
+
+/* Prevent multiple badges on same element */
+a[href="cart.html"] .cart-badge:not(:first-child) {
+    display: none;
+}
+
+/* Additional safety to prevent footer badges */
+.footer-section a[href="cart.html"] {
+    position: static !important;
+}
+
+.footer-section a[href="cart.html"]::after,
+.footer-section a[href="cart.html"] .cart-badge {
+    content: none !important;
+    display: none !important;
+}
