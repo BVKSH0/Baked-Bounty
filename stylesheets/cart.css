@@ -238,7 +238,7 @@ text-shadow: 0 0 5px #fff;
   }
 
   #sm-banner h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   
   #subtotal {
@@ -246,4 +246,27 @@ text-shadow: 0 0 5px #fff;
   }
 
 
+}
+
+/* Additional inline styles for perfect mobile match */
+@media (max-width: 768px) {
+    .contact-info h4 {
+        color: #333;
+        font-size: 15px;
+        font-weight: 600;
+        margin: 15px 0 10px 0;
+    }
+    
+    .social-section {
+        margin-top: 15px;
+    }
+    
+    .social-links::before {
+        content: "Follow Us";
+        display: block;
+        color: #333;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
 }

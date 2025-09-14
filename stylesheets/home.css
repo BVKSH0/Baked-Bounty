@@ -21,6 +21,10 @@
   color: #088178;
 }
 
+#hero button a {
+  text-decoration: none;
+}
+
 #hero button {
   background-image: url(/assets/Home/button.png);
   background-color: transparent;
