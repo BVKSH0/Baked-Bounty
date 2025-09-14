@@ -3,6 +3,9 @@
   background-image: url("/assets/extra_headers/page-header-about.jpeg");
 }
 
+#cart {
+    overflow-x: auto;
+}
 
 #cart table {
     width: 100%;
@@ -65,7 +68,7 @@
 }
 
 
-#sm-banner .banner-box, .banner-box2#sm-banner .banner-box {
+#sm-banner .banner-box, .banner-box2 {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -82,6 +85,7 @@
 
 #sm-banner .banner-box2 {
     background-image: url(none);
+    align-items: flex-start;
 }
 
 .banner-box2 {
@@ -114,6 +118,24 @@
     padding: 12px 20px;
 } 
 
+#subtotal button.clrcrt {
+    background-color: #dc3545;
+    margin-right: 10px; 
+    color: white;
+    margin:  0px  10px 10px 0px;
+}
+
+#subtotal .subbtns {
+    display: flex;
+    flex-direction: row;
+    gap: 15px; /* Space between buttons */
+}
+
+#subtotal .subbtns button {
+    flex: 1; /* This makes buttons equally share available space */
+    padding: 10px 2px;
+} 
+
 #subtotal {
     width: 50%;
     margin-bottom: 30px;
@@ -138,5 +160,86 @@
     color: #000000;
     font-size: 1.8rem;
     font-weight: 800;
-    text-decoration: underline;
+    /* text-decoration: underline; */
+color: #000000;
+background: transparent;
+text-shadow: 0 0 3px #e6e6e6;
+
+}
+
+@media (max-width: 1025px) {
+  #sm-banner .banner-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    margin-top: 3vh;
+    background-image: url(/assets/extra_headers/cart_tyfswu.png);
+    width: 100%;
+    min-width: auto;
+    height: 20vh;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0px;
+  }
+
+  
+  #sm-banner.section-p1 {
+    padding: 0px;
+  }
+
+  .banner-box2 {
+    justify-content: flex-start;
+    width: 100%;
+    min-width: auto;
+    height: 40vh;
+    padding: 3vh 30px 30px 30px;
+  }
+
+  #sm-banner h2 {
+    color: #332727;
+    font-size: 2.5rem;
+    font-weight: 800;
+    /* text-decoration: underline; */
+color: #000000;
+background: transparent;
+text-shadow: 0 0 5px #fff;
+
+}
+
+}
+
+@media (max-width: 799px) {
+
+  .banner-box2 {
+    height: 50vh;
+  }
+
+  #sm-banner h2 {
+    font-size: 2.1rem;
+  }
+
+  #subtotal {
+    width: 60%;
+  }
+
+}
+
+@media (max-width: 477px) {
+
+  .banner-box2 {
+    height: 50vh;
+    padding: 1vh 30px 30px 30px;
+  }
+
+  #sm-banner h2 {
+    font-size: 1.2rem;
+  }
+  
+  #subtotal {
+    width: 100%;
+  }
+
+
 }

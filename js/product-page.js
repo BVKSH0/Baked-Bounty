@@ -1,4 +1,5 @@
 // product-page.js - Handle individual product page functionality
+// Updated to work with the cart system
 
 // Define these functions at the top level to make them globally accessible
 function getProductById(productId) {
@@ -27,11 +28,15 @@ function navigateToProduct(productId) {
     }, 300); // delay to let fade-out play
 }
 
-
+// Updated addToCart function to use the cart system
 function addToCart(productId, quantity = 1) {
-    // Add your cart functionality here
-    console.log(`Added ${quantity} of product ${productId} to cart`);
-    alert('Product added to cart!');
+    if (window.cart) {
+        return window.cart.addItem(productId, quantity);
+    } else {
+        console.error('Cart system not loaded');
+        alert('Cart system not available. Please refresh the page.');
+        return false;
+    }
 }
 
 // Main initialization
@@ -70,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize image gallery
     initializeImageGallery();
     
-    // Handle add to cart
+    // Handle add to cart - now integrated with cart system
     setupAddToCart(product);
 });
 
@@ -127,29 +132,28 @@ function loadProductData(product) {
         mainImg.alt = product.name;
     }
     
-    // Update small images gallery with *other products* instead of same product’s images
+    // Update small images gallery with *other products* instead of same product's images
     const smallImgGrp = document.getElementById('small-img-grp');
     if (smallImgGrp) {
-    smallImgGrp.innerHTML = '';
+        smallImgGrp.innerHTML = '';
 
-    // Get 4 other products (exclude the current one)
-    const otherProducts = getAllProducts().filter(p => p.id !== product.id).slice(0, 4);
+        // Get 4 other products (exclude the current one)
+        const otherProducts = getAllProducts().filter(p => p.id !== product.id).slice(0, 4);
 
-    otherProducts.forEach(related => {
-        const smallImg = document.createElement('div');
-        smallImg.className = 'small-img-col';
-        smallImg.innerHTML = `
-            <img 
-                src="${related.images[0]}" 
-                width="100%" 
-                class="small-img" 
-                alt="${related.name}" 
-                data-product-id="${related.id}" />
-              `;
+        otherProducts.forEach(related => {
+            const smallImg = document.createElement('div');
+            smallImg.className = 'small-img-col';
+            smallImg.innerHTML = `
+                <img 
+                    src="${related.images[0]}" 
+                    width="100%" 
+                    class="small-img" 
+                    alt="${related.name}" 
+                    data-product-id="${related.id}" />
+            `;
             smallImgGrp.appendChild(smallImg);
         });
     }
-
     
     // Update features list
     const featuresList = document.getElementById('features-list');
@@ -174,13 +178,11 @@ function initializeImageGallery() {
         img.addEventListener('click', function() {
             const productId = this.getAttribute('data-product-id');
             if (productId) {
-                navigateToProduct(productId); // open that product’s full page
+                navigateToProduct(productId); // open that product's full page
             }
         });
     });
 }
-
-
 
 function loadRelatedProducts(category, currentProductId) {
     const relatedProductsContainer = document.getElementById('related-products');
@@ -220,9 +222,10 @@ function loadRelatedProducts(category, currentProductId) {
                 </div>
                 <a href="#" onclick="event.stopPropagation(); addToCart('${product.id}'); return false;">
                     <img
-              class="icon cart"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARtJREFUSEvdlc0RgjAUhDeeYhfQCXaiV20gJwicXgN61U6gE+nC3KKJQ8yMQhJGZhxzzM/7s    ru8wLDwYAvXxx8BeC30F+3qVUW5qecs+jIAqiJb+y0DXgsJoILGRUnapajijdhC4+yffQdIkYHhCsDJjIXwRrTQKMCwUyVdPiowk26jxkZJ6qIBQ44auZLUTwGeUhk6VdImBvDJnnHADJu4FOZC20eutarI5GjHaKM5m2Ku7+/x7JkGSGHCahPq92Coh3DDCl42AYlh+5eafIucrzN6IqjAfq5PFcamLMaqoXujFTjIynZnEYLMAoSKhtaj/gfrRhy1xp4xnG4lHYaiY/NJFlmbvKfct2FsPhmwuIKQz1PrURn8NOAO/hCLGVMxPKUAAAAASUVORK5CYII="/>
-              </a>
+                        class="icon cart"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAARtJREFUSEvdlc0RgjAUhDeeYhfQCXaiV20gJwicXgN61U6gE+nC3KKJQ8yMQhJGZhxzzM/7s    ru8wLDwYAvXxx8BeC30F+3qVUW5qecs+jIAqiJb+y0DXgsJoILGRUnapajijdhC4+yffQdIkYHhCsDJjIXwRrTQKMCwUyVdPiowk26jxkZJ6qIBQ44auZLUTwGeUhk6VdImBvDJnnHADJu4FOZC20eutarI5GjHaKM5m2Ku7+/x7JkGSGHCahPq92Coh3DDCl42AYlh+5eafIucrzN6IqjAfq5PFcamLMaqoXujFTjIynZnEYLMAoSKhtaj/gfrRhy1xp4xnG4lHYaiY/NJFlmbvKfct2FsPhmwuIKQz1PrURn8NOAO/hCLGVMxPKUAAAAASUVORK5CYII="
+                    />
+                </a>
             </div>
         `;
         relatedProductsContainer.innerHTML += productHTML;

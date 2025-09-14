@@ -1,4 +1,5 @@
-// shop-links.js - Handle product navigation from shop page
+// shop-links.js - Handle product navigation and cart functionality from shop page
+// Updated to work with the cart system
 
 document.addEventListener('DOMContentLoaded', function() {
     // Add click handlers to all products
@@ -44,13 +45,40 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Handle cart button clicks separately (prevent navigation)
+    // Handle cart button clicks separately (prevent navigation and add to cart)
     const cartButtons = document.querySelectorAll('.cart');
-    cartButtons.forEach(function(button) {
-        button.addEventListener('click', function(e) {
+    cartButtons.forEach(function(cartButton) {
+        cartButton.addEventListener('click', function(e) {
+            e.preventDefault();
             e.stopPropagation(); // Prevent product navigation
-            // Add your cart functionality here
-            console.log('Added to cart');
+            
+            // Find the parent product element
+            const productElement = this.closest('.product');
+            if (productElement) {
+                // Find the product image to determine which product this is
+                const productImage = productElement.querySelector('.pro-img');
+                if (productImage) {
+                    const imageSrc = productImage.getAttribute('src');
+                    const productId = productMappings[imageSrc];
+                    
+                    if (productId && window.cart) {
+                        // Add to cart using the cart system
+                        window.cart.addItem(productId, 1);
+                    } else {
+                        console.error('Product ID not found or cart system not available:', imageSrc);
+                        alert('Unable to add item to cart. Please try again.');
+                    }
+                }
+            }
+        });
+    });
+
+    // Handle cart links in navigation
+    const cartLinks = document.querySelectorAll('a[href="cart.html"]');
+    cartLinks.forEach(cartLink => {
+        cartLink.addEventListener('click', function(e) {
+            // Allow normal navigation to cart page
+            // The cart.js will handle updating the cart display
         });
     });
 });
@@ -59,3 +87,13 @@ document.addEventListener('DOMContentLoaded', function() {
 function navigateToProduct(productId) {
     window.location.href = `sproduct.html?id=${productId}`;
 }
+
+// Global function to add to cart (for backward compatibility)
+window.addToCartFromShop = function(productId) {
+    if (window.cart) {
+        window.cart.addItem(productId, 1);
+    } else {
+        console.error('Cart system not available');
+        alert('Unable to add item to cart. Please refresh the page.');
+    }
+};

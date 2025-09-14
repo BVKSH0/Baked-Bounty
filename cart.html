@@ -6,13 +6,14 @@
     <link rel="stylesheet" href="stylesheets/style.css" />
     <link rel="stylesheet" href="stylesheets/home.css" />
     <link rel="stylesheet" href="stylesheets/shop.css" />
-    <link rel="stylesheet" href="stylesheets/cart.css" />
     <link rel="stylesheet" href="stylesheets/mediaquery.css" />
+    <link rel="stylesheet" href="stylesheets/cart.css" />
+
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <title>Baked Bounty</title>
+    <title>Cart - Baked Bounty</title>
   </head>
 
   <body>
@@ -66,8 +67,8 @@
     </section>
 
     <section id="page-header">
-      <h2>24/7 At Your Service</h2>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, modi.</p>
+      <h2>Your Shopping Cart</h2>
+      <p>Review your items and proceed to checkout</p>
     </section>
 
     <section id="cart" class="section-p1">
@@ -75,7 +76,7 @@
             <thead>
                 <tr>
                     <td>Remove</td>
-                    <td>image</td>
+                    <td>Image</td>
                     <td>Product</td>
                     <td>Price</td>
                     <td>Quantity</td>
@@ -83,24 +84,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><a href=""><i class='bx bx-trash trashcon'></i></i></a></td>
-                    <td><img src="assets/Products/f1.png" alt="product-f1"></td>
-                    <td>Masako Meat Seasoning</td>
-                    <td>650৳</td>
-                    <td><input type="number" value="1"></td>
-                    <td>650৳</td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <td><a href=""><i class='bx bx-trash trashcon'></i></i></a></td>
-                    <td><img src="assets/Products/f2.png" alt="product-f2"></td>
-                    <td>Teriyaki Sauce</td>
-                    <td>650৳</td>
-                    <td><input type="number" value="1"></td>
-                    <td>650৳</td>
-                </tr>
+                <!-- Cart items will be dynamically populated by cart.js -->
             </tbody>
         </table>
     </section>
@@ -113,8 +97,8 @@
        <div id="coupon">
             <h3>Apply Coupon</h3>
             <div>
-                <input type="text" placeholder="Enter Your coupon">
-                <button class="normal">Apply</button>
+                <input type="text" placeholder="Enter Your coupon" id="coupon-input">
+                <button class="normal" onclick="applyCoupon()">Apply</button>
             </div> 
         </div>
 
@@ -123,7 +107,7 @@
             <table>
                 <tr>
                     <td>Cart Subtotal</td>
-                    <td>650৳</td>
+                    <td>0৳</td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
@@ -131,10 +115,13 @@
                 </tr>
                 <tr>
                     <td><strong>Total</strong></td>
-                    <td><strong>650৳</strong></td>
+                    <td><strong>0৳</strong></td>
                 </tr>
             </table>
-            <button class="normal">Proceed to checkout</button>
+            <div class="subbtns" >
+                <button class="normal clrcrt" onclick="clearCart()">Clear Cart</button>
+                <button class="normal chckout" onclick="proceedToCheckout()">Proceed to checkout</button>
+            </div>
         </div>
       </div>
     </section>
@@ -185,8 +172,75 @@
       </div>
     </footer>
 
-   <script src="js/script.js"></script>
-   <script src="js/about.js"></script>
+    <!-- Load scripts in correct order -->
+    <script src="js/product-data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/script.js"></script>
+    
+    <script>
+        // Additional cart page functionality
+        function proceedToCheckout() {
+            if (window.cart && window.cart.items.length > 0) {
+                const total = window.cart.getTotal();
+                const itemCount = window.cart.getTotalItems();
+                
+                // You can customize this based on your payment integration needs
+                if (confirm(`Proceed to checkout with ${itemCount} items totaling ${total.toFixed(0)}৳?`)) {
+                    // Here you would typically redirect to a checkout page or integrate with a payment gateway
+                    alert('Checkout functionality would be implemented here. This could redirect to a payment gateway like bKash, Stripe, etc.');
+                    
+                    // Example redirect (uncomment when you have a checkout page):
+                    // window.location.href = 'checkout.html';
+                }
+            } else {
+                alert('Your cart is empty. Add some items before checking out.');
+                window.location.href = 'shop.html';
+            }
+        }
+
+        function clearCart() {
+            if (confirm('Are you sure you want to clear your entire cart? This action cannot be undone.')) {
+                window.cart.clearCart();
+                // Show confirmation
+                alert('Your cart has been cleared.');
+            }
+        }
+
+        function applyCoupon() {
+            const couponInput = document.getElementById('coupon-input');
+            const couponCode = couponInput.value.trim().toUpperCase();
+            
+            // Example coupon codes - you can customize this
+            const validCoupons = {
+                'WELCOME10': 0.10,    // 10% off
+                'SAVE20': 0.20,       // 20% off
+                'FIRST5': 0.05,       // 5% off
+                'BAKEDLOVE': 0.15     // 15% off
+            };
+            
+            if (couponCode && validCoupons[couponCode]) {
+                const discount = validCoupons[couponCode];
+                const discountPercent = Math.round(discount * 100);
+                
+                alert(`Coupon "${couponCode}" applied! You saved ${discountPercent}% on your order.`);
+                
+                // You could store the discount and apply it to the total
+                // For now, just showing the message
+                couponInput.value = '';
+            } else if (couponCode) {
+                alert('Invalid coupon code. Please check and try again.');
+            } else {
+                alert('Please enter a coupon code.');
+            }
+        }
+
+        // Initialize cart display when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.cart) {
+                window.cart.updateCartPage();
+            }
+        });
+    </script>
 
   </body>
 </html>

@@ -9,6 +9,7 @@
   #form-details form {
     width: 50%;
   }
+
 }
 
 @media (max-width: 799px) {
@@ -78,6 +79,7 @@
   #form-details {
     padding: 0px;
   }
+
 }
 
 
