@@ -80,6 +80,6 @@ Open index.html in a browser or serve it using any static file server.
 ---
 
 ## 📄 License
-
-No license specified.
+This project is licensed under the MIT License.
+You are free to use, modify, and distribute this project with proper attribution.
 
