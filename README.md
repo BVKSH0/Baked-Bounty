@@ -57,38 +57,17 @@ Open index.html in a browser or serve it using any static file server.
 
 ---
 
-## ⚠️ Limitations
+## ⚠️ Limitations vs 🛠️ Possible Improvements
 
-- This project does not include:
-
-- Backend or server-side logic
-
-- Database or persistent storage
-
-- Shopping cart or checkout system
-
-- Payment processing
-
-- Admin dashboard or CMS
-
-- User authentication
-
-- All products and content are statically defined.
-
----
-
-## 🛠️ Possible Improvements
-
-- Add a backend for handling orders
-
-- Integrate a database for products and inventory
-
-- Implement cart and checkout functionality
-
-- Add an admin panel for content management
-
-- Connect email notifications for orders
-
+| ⚠️ Limitations | 🛠️ Possible Improvements |
+|---------------|-------------------------|
+| • No backend or server-side logic | • Add a backend for handling orders |
+| • No database or persistent storage | • Integrate a database for products and inventory |
+| • No shopping cart or checkout system | • Implement cart and checkout functionality |
+| • No payment processing | • Add an admin panel for content management |
+| • No admin dashboard or CMS | • Connect email notifications for orders |
+| • No user authentication | |
+| • All products and content are statically defined | |
 
 ---
 
@@ -100,7 +79,7 @@ Open index.html in a browser or serve it using any static file server.
 
 ---
 
-##📄 License
+## 📄 License
 
 No license specified.
 
